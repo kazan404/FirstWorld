@@ -10,13 +10,11 @@ namespace Helloworld
     {
         static void Main(string[] args)
         {
-            Section1 section1 = new Section1();
+            Section2 section2 = new Section2();
 
             Console.WriteLine("Hello World.");
 
-            int answer = section1.CalcCombination(100);
-
-            Console.WriteLine(answer);
+            Console.WriteLine(section2.Function());
 
             Console.ReadLine();
         }
