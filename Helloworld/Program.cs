@@ -10,11 +10,11 @@ namespace Helloworld
     {
         static void Main(string[] args)
         {
-            Section2 section2 = new Section2();
+            Section3 section3 = new Section3();
 
             Console.WriteLine("Hello World.");
 
-            Console.WriteLine(section2.Function(29, 17));
+            Console.WriteLine(section3.FunCount(12));
 
             Console.ReadLine();
         }
