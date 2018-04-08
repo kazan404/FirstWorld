@@ -14,7 +14,7 @@ namespace Helloworld
 
             Console.WriteLine("Hello World.");
 
-            Console.WriteLine(section3.FunCount(12));
+            Console.WriteLine(section3.CountCharNum(12));
 
             Console.ReadLine();
         }
