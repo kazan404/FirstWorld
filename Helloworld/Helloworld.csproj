@@ -51,6 +51,7 @@
     <Compile Include="Section1.cs" />
     <Compile Include="Section2.cs" />
     <Compile Include="Section4.cs" />
+    <Compile Include="Section5.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
