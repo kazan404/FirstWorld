@@ -10,11 +10,9 @@ namespace Helloworld
     {
         static void Main(string[] args)
         {
-            Section5 section5 = new Section5();
+            Answers answers = new Answers();
 
             Console.WriteLine("Hello World.");
-
-            Console.WriteLine((uint)(section5.CalcUseNumInPascal(45)));
 
             Console.ReadLine();
         }
