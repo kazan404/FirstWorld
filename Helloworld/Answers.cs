@@ -357,34 +357,23 @@ namespace Helloworld
         {
             Int64 resultCount = 0;
 
-            for(int i=0; i < input; i++)
+            for(int i=1; i < input; i++)
             {
-                resultCount += (i + 1) * CalcCombination(input, i);
+                resultCount += i * (input - 1) * CalcPermutation(input, i-1);
             }
 
             return resultCount;
         }
 
 
-        public Int64 CalcCombination(int all, int select)
+        public Int64 CalcPermutation(int all, int select)
         {
-            Int64 resultCount = 0;
+            Int64 resultCount = 1;
 
-            if(select == 0)
+            for(int i = 0; i < select; i++)
             {
-                return 0;
+                resultCount *= (all - i);
             }
-
-            Int64 amountChiled = 1;
-            Int64 amountMother = 1;
-
-            for (int i = 0; i < select; i++)
-            {
-                amountChiled *= (all - i);
-                amountMother *= (select - i);
-            }
-
-            resultCount = amountChiled / amountMother;
 
             return resultCount;
         }
