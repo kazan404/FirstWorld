@@ -379,5 +379,14 @@ namespace Helloworld
         }
 
         #endregion
+
+        public int Section8(int height, int width)
+        {
+            int returnValue = 0;
+
+            returnValue = (height - 1) + (width - 1) + 1;
+
+            return returnValue;
+        }
     }
 }
