@@ -380,6 +380,7 @@ namespace Helloworld
 
         #endregion
 
+        #region Section8
         public int Section8(int height, int width)
         {
             int returnValue = 0;
@@ -388,5 +389,40 @@ namespace Helloworld
 
             return returnValue;
         }
+        #endregion
+
+        #region Section9
+        
+        public void Section9(int showCount)
+        {
+            int currentCount = 0;
+            int currentValue = 0;
+            string valueString = "";
+            int currentLength = 0;
+
+            while(currentCount < showCount)
+            {
+                currentValue++;
+
+                valueString = Convert.ToString(currentValue, 8);
+                currentLength = valueString.Length;
+
+                if (currentLength >= 2)
+                {
+                    int valuePlus = 0;
+                    for(int i = 0; i < currentLength; i++)
+                    {
+                        valuePlus += (int)Math.Pow( int.Parse(valueString[i].ToString()) , currentLength);
+                    }
+                    if(valuePlus == currentValue)
+                    {
+                        Console.WriteLine(valueString);
+                        currentCount++;
+                    }
+                }
+            }
+        }
+
+        #endregion
     }
 }
