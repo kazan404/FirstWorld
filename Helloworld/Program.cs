@@ -14,7 +14,7 @@ namespace Helloworld
 
             Console.WriteLine("Hello World.");
 
-            answers.Section9(8);
+            answers.Section10();
 
             Console.ReadLine();
         }

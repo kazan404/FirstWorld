@@ -424,5 +424,64 @@ namespace Helloworld
         }
 
         #endregion
+
+        #region Section10
+
+        public void Section10()
+        {
+            int[] numSheets = { 5381733, 1308265, 1279594, 2333899, 1023119, 1123891, 1914039, 2916976, 1974255, 1973115,
+                                7266534, 6222666, 13515247,9126214, 2304264, 1066328, 1154008, 786740,  834930,  2098804, 
+                                2031903, 3700305, 7483128, 1815865, 1412916, 2610353, 8839469, 5534800, 1364316, 963579,
+                                 573441,  694352,  1921525, 2843990, 1404729, 755733,  976263,  1385262, 728276, 5101556,
+                                 832832,  1377187, 1786170, 1166338, 1104069, 1648177, 1433566};
+
+            const int targetSumNum = 289;
+            int calcSum = 0;
+            int devideValue = 1;
+            int altDevideValue = 10000;
+
+            List<int> calcSheets = new List<int>();
+            for(int i=0; i < 47; i++)
+            {
+                calcSheets.Add(0);
+            }
+
+            while (calcSum != targetSumNum)
+            {
+                devideValue += altDevideValue;
+
+                for(int i = 0; i < 47; i++)
+                {
+                    calcSheets[i] = numSheets[i] / devideValue + 1;
+                }
+
+                calcSum = calcSheets.Sum();
+                if(calcSum - targetSumNum < 0)
+                {
+                    //　割る数を小さく
+                    if(altDevideValue > 0)
+                    {
+                        altDevideValue /= -2;
+                    }
+                }
+                else if(calcSum - targetSumNum > 0)
+                {
+                    //　割る数を大きく
+                    if (altDevideValue < 0)
+                    {
+                        altDevideValue /= -2;
+                    }
+                }
+            }
+
+            foreach(int calcSheet in calcSheets)
+            {
+                Console.WriteLine(calcSheet);
+            }
+        }
+
+        
+
+        #endregion
     }
 }
