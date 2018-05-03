@@ -480,8 +480,44 @@ namespace Helloworld
             }
         }
 
-        
 
+
+        #endregion
+
+        #region Section11
+        
+        public void Section11()
+        {
+            const int numEntry = 7;
+
+            Int64 numVotePattern = 0;
+
+            numVotePattern = voteRemoveTop(numEntry);
+
+            Console.WriteLine(numVotePattern);
+        }
+
+        public Int64 voteRemoveTop(int numEntry)
+        {
+            Int64 numVote = 0;
+
+            if (numEntry <= 2)
+            {
+                numVote = 1;
+            }
+            else
+            {
+                numVote += 1;
+                // 抜けるのは下位の並んだものを投票で決める
+                for(int i = 1; i < numEntry; i++)
+                {
+                    numVote += voteRemoveTop(numEntry - 1) * voteRemoveTop(i);
+                }
+            }
+
+            return numVote;
+        }
+        
         #endregion
     }
 }
