@@ -517,7 +517,32 @@ namespace Helloworld
 
             return numVote;
         }
-        
+
+        #endregion
+
+        #region Section12
+
+        public void Section12()
+        {
+            int targetDigits = 11;
+            Int64 targetAnswer = 314159265358;
+            int denominator = 0;
+
+            while(true)
+            {
+                denominator++;
+                if (Math.Floor(targetAnswer * denominator / Math.Pow(10, targetDigits))
+                    != Math.Floor((targetAnswer+1) * denominator / Math.Pow(10, targetDigits)))
+                {
+                    if(Math.Floor((targetAnswer + 1) * denominator % Math.Pow(10, targetDigits)) != 0)
+                    {
+                        Console.WriteLine(denominator);
+                        break;
+                    }
+                }
+            }
+        }
+
         #endregion
     }
 }
