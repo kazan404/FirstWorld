@@ -577,51 +577,49 @@ namespace Helloworld
 
         public void Section14()
         {
-            int calcTotal = 0;
-            int TOTAL = 45678;
+            int calcratedTotal = 45678;
 
             int[] numMoneyCategory = new int[10];
-            int amountAllMoney = 10000 + 5000 + 2000 + 1000 + 500 + 100 + 50 + 10 + 5 + 1;
-            if(TOTAL - amountAllMoney > 0)
-            {
-                calcTotal = TOTAL - amountAllMoney;
-                for(int i = 0; i < 10; i++)
-                {
-                    numMoneyCategory[i] = 1;
-                }
+            int[] moneyCategory = { 1, 5, 10, 50, 100, 500, 1000, 2000, 5000, 10000 };
 
-                numMoneyCategory[0] += calcTotal / 10000;
-                calcTotal = calcTotal % 10000;
-                numMoneyCategory[1] += calcTotal / 5000;
-                calcTotal = calcTotal % 5000;
-                numMoneyCategory[2] += calcTotal / 2000;
-                calcTotal = calcTotal % 2000;
-                numMoneyCategory[3] += calcTotal / 1000;
-                calcTotal = calcTotal % 1000;
-                numMoneyCategory[4] += calcTotal / 500;
-                calcTotal = calcTotal % 500;
-                numMoneyCategory[5] += calcTotal / 100;
-                calcTotal = calcTotal % 100;
-                numMoneyCategory[6] += calcTotal / 50;
-                calcTotal = calcTotal % 50;
-                numMoneyCategory[7] += calcTotal / 10;
-                calcTotal = calcTotal % 10;
-                numMoneyCategory[8] += calcTotal / 5;
-                calcTotal = calcTotal % 5;
-                numMoneyCategory[9] += calcTotal;
+            for(int i=0; i < 10; i++)
+            {
+                addFirstNum(i);
+            }
+            for(int i = 9; i >= 0; i--)
+            {
+                addSecondNum(i);
             }
 
-            Console.WriteLine("10000 ; " + numMoneyCategory[0]);
-            Console.WriteLine("5000 ; " + numMoneyCategory[1]);
-            Console.WriteLine("2000 ; " + numMoneyCategory[2]);
-            Console.WriteLine("1000 ; " + numMoneyCategory[3]);
-            Console.WriteLine("500 ; " + numMoneyCategory[4]);
-            Console.WriteLine("100 ; " + numMoneyCategory[5]);
-            Console.WriteLine("50 ; " + numMoneyCategory[6]);
-            Console.WriteLine("10 ; " + numMoneyCategory[7]);
-            Console.WriteLine("5 ; " + numMoneyCategory[8]);
-            Console.WriteLine("1 ; " + numMoneyCategory[9]);
+            Console.WriteLine("10000 ; " + numMoneyCategory[9]);
+            Console.WriteLine("5000 ; " + numMoneyCategory[8]);
+            Console.WriteLine("2000 ; " + numMoneyCategory[7]);
+            Console.WriteLine("1000 ; " + numMoneyCategory[6]);
+            Console.WriteLine("500 ; " + numMoneyCategory[5]);
+            Console.WriteLine("100 ; " + numMoneyCategory[4]);
+            Console.WriteLine("50 ; " + numMoneyCategory[3]);
+            Console.WriteLine("10 ; " + numMoneyCategory[2]);
+            Console.WriteLine("5 ; " + numMoneyCategory[1]);
+            Console.WriteLine("1 ; " + numMoneyCategory[0]);
 
+            void addFirstNum(int index)
+            {
+                if (calcratedTotal - moneyCategory[index] > 0)
+                {
+                    numMoneyCategory[index] += 1;
+                    calcratedTotal -= moneyCategory[index];
+                }
+            }
+
+            void addSecondNum(int index)
+            {
+                int tempNum = calcratedTotal / moneyCategory[index];
+                if(tempNum > 0)
+                {
+                    numMoneyCategory[index] += tempNum;
+                    calcratedTotal -= (moneyCategory[index] * tempNum);
+                }
+            }
         }
 
         #endregion
